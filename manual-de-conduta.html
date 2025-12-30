@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Conduta Policial - LSPD Style</title>
+    <style>
+        :root {
+            --police-blue: #002d5b;
+            --police-dark: #001a33;
+            --accent: #f1c40f;
+            --danger: #e74c3c;
+            --bg: #121212;
+            --card: #1e1e1e;
+            --text: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container { max-width: 1100px; margin: auto; }
+
+        header {
+            text-align: center;
+            padding: 30px;
+            background: var(--police-blue);
+            border-radius: 10px;
+            border-bottom: 5px solid var(--accent);
+            margin-bottom: 30px;
+        }
+
+        h1 { margin: 0; color: white; letter-spacing: 2px; text-transform: uppercase; }
+        .badge { font-size: 0.8em; color: var(--accent); font-weight: bold; }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .section-card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--police-blue);
+        }
+
+        h2 { color: var(--accent); border-bottom: 1px solid #444; padding-bottom: 10px; text-transform: uppercase; font-size: 1.1em; }
+
+        .code-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-family: monospace;
+        }
+
+        .code-item { background: #111; padding: 5px 10px; border-radius: 4px; border: 1px solid #333; }
+        .code-item b { color: var(--accent); }
+
+        .status-box {
+            background: #252525;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .rank-box {
+            border: 1px solid var(--police-blue);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .rank-title { font-weight: bold; color: var(--accent); text-transform: uppercase; }
+
+        .highlight { color: var(--danger); font-weight: bold; }
+
+        footer { text-align: center; margin-top: 50px; opacity: 0.5; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="badge">POLICE DEPARTMENT</div>
+        <h1>Manual de Conduta e Patrulhamento</h1>
+        <p>Proteger e Servir - Unidade de Elite</p>
+    </header>
+
+    <div class="nav-grid">
+        <div class="section-card">
+            <h2>🎙️ Códigos 10 (Comunicação)</h2>
+            <div class="code-grid">
+                <div class="code-item"><b>10-04:</b> Ciente / Copiado</div>
+                <div class="code-item"><b>10-06:</b> Ocupado</div>
+                <div class="code-item"><b>10-07:</b> Fora de serviço</div>
+                <div class="code-item"><b>10-08:</b> Em patrulha</div>
+                <div class="code-item"><b>10-10:</b> Ocorrência em andamento</div>
+                <div class="code-item"><b>10-14:</b> Cidadão suspeito</div>
+                <div class="code-item"><b>10-20:</b> Localização atual</div>
+                <div class="code-item"><b>10-31:</b> Crime em curso</div>
+                <div class="code-item"><b>10-33:</b> Apoio Urgente (QRR)</div>
+                <div class="code-item"><b>10-99:</b> Oficial baleado</div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>🚨 Códigos de Resposta</h2>
+            <div class="status-box">
+                <b>Código 1:</b> Patrulha padrão (Sem sirene/giroflex). Respeitar sinais.
+            </div>
+            <div class="status-box">
+                <b>Código 2:</b> Prioridade média (Giroflex ligado, sem sirene).
+            </div>
+            <div class="status-box">
+                <b>Código 3:</b> Emergência TOTAL (Giroflex e Sirene). Prioridade no trânsito.
+            </div>
+            <div class="status-box">
+                <b>Código 4:</b> Situação sob controle / Sem mais apoio necessário.
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-grid">
+        <div class="section-card">
+            <h2>🎖️ Hierarquia e Deveres</h2>
+            <div class="rank-box">
+                <span class="rank-title">Recruta (Cadete)</span>
+                <p>Estagiário em fase de teste. Não pode patrulhar sozinho. Deve observar, aprender e operar o rádio/MDT enquanto o superior dirige.</p>
+            </div>
+            <div class="rank-box">
+                <span class="rank-title">Oficial / Soldado</span>
+                <p>Espinha dorsal da polícia. Pode patrulhar sozinho (conforme regras da cidade), realizar abordagens e responder ocorrências 10-10.</p>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>🔫 Armamento Sugerido (RP)</h2>
+            <ul>
+                <li><b>Less-Lethal (Taser):</b> Uso primário em resistência física ou fuga a pé sem arma de fogo.</li>
+                <li><b>Combat Pistol:</b> Arma de porte obrigatório. Uso em legítima defesa.</li>
+                <li><b>Shotgun/Rifle:</b> Armas de grosso calibre. Só devem ser retiradas do rack da viatura em situações de 10-31 (assaltos) ou quando o suspeito portar arma pesada.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section-card">
+        <h2>📑 Protocolo de Patrulha (SOP)</h2>
+        <ol>
+            <li><b>Início de Turno (QAP):</b> Bater o ponto, equipar-se no arsenal, pegar a viatura, realizar o check-list (combustível/mecânica) e informar no rádio: <i>"Oficial [Nome], 10-08 em patrulha [Zona/Setor]"</i>.</li>
+            <li><b>Abordagem Veicular (Traffic Stop):</b>
+                <ul>
+                    <li>Posicionar a viatura levemente para a esquerda atrás do suspeito (Ângulo de segurança).</li>
+                    <li>Informar 10-20, placa e modelo do veículo no rádio.</li>
+                    <li>Tocar a sirene brevemente para o suspeito encostar.</li>
+                </ul>
+            </li>
+            <li><b>Uso da Força:</b> O uso da força deve ser progressivo (Presença -> Verbalização -> Taser -> Arma de Fogo). <span class="highlight">O disparo de arma de fogo é o último recurso.</span></li>
+            <li><b>Direitos de Miranda:</b> Devem ser lidos no momento em que o indivíduo é algemado e a situação está segura.</li>
+        </ol>
+    </div>
+
+    <div class="section-card" style="margin-top: 20px; border-left-color: var(--danger);">
+        <h2>⚖️ Conduta Ética</h2>
+        <p>Um oficial americano preza pelo profissionalismo. O desacato por parte do civil deve ser respondido com a lei, não com agressividade verbal. <br>
+        <b>Lembre-se:</b> Você representa o Estado. Mantenha a postura, use o "Senhor/Senhora" e siga o Código Penal.</p>
+    </div>
+
+    <footer>
+        &copy; 2024 Police Department - Documento Confidencial de Roleplay
+    </footer>
+</div>
+
+</body>
+</html>

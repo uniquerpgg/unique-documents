@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Penal Completo - GTA RP</title>
+    <style>
+        :root {
+            --primary: #e74c3c;
+            --secondary: #2c3e50;
+            --bg: #121212;
+            --card-bg: #1e1e1e;
+            --text: #e0e0e0;
+            --accent: #f1c40f;
+            --success: #2ecc71;
+            --alert: #d35400;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            border-bottom: 4px solid var(--primary);
+            margin-bottom: 30px;
+        }
+
+        h1 { margin: 0; color: var(--primary); text-transform: uppercase; letter-spacing: 3px; }
+        p.subtitle { margin: 5px 0 0; opacity: 0.7; font-size: 0.9em; }
+
+        .search-container {
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            margin-bottom: 25px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid var(--primary);
+            background: var(--card-bg);
+            color: white;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .category-header {
+            background: linear-gradient(90deg, var(--primary), transparent);
+            padding: 10px 20px;
+            margin-top: 40px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-transform: uppercase;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            margin-top: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            background-color: #111;
+            color: var(--accent);
+            font-size: 0.85em;
+            text-transform: uppercase;
+        }
+
+        tr:hover { background-color: #252525; }
+
+        .highlight-row {
+            background-color: rgba(241, 196, 15, 0.1) !important;
+            border-left: 4px solid var(--accent);
+        }
+
+        .fianca-sim { color: var(--success); font-weight: bold; }
+        .fianca-nao { color: var(--primary); font-weight: bold; }
+
+        .footer-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 3px solid var(--accent);
+        }
+
+        .card-alert { border-top: 3px solid var(--alert); }
+
+        .card h3 { color: var(--accent); margin-top: 0; }
+        .card-alert h3 { color: var(--alert); }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+
+        @media (max-width: 768px) {
+            th:nth-child(4), td:nth-child(4) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>CÓDIGO PENAL UNIFICADO</h1>
+        <p class="subtitle">Departamento de Justiça & Segurança Pública</p>
+    </header>
+    
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-box" placeholder="🔎 Pesquisar crime ou regra específica..." onkeyup="searchTable()">
+    </div>
+
+    <div class="category-header">1. Crimes Contra a Pessoa</div>
+    <table>
+        <thead>
+            <tr><th>Crime</th><th>Pena</th><th>Multa</th><th>Fiança</th><th>Observação</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Homicídio Doloso</td><td>80 Meses</td><td>$30.000</td><td class="fianca-nao">NÃO</td><td>Com intenção.</td></tr>
+            <tr><td>Homicídio Culposo</td><td>30 Meses</td><td>$15.000</td><td class="fianca-sim">SIM</td><td>Sem intenção.</td></tr>
+            <tr><td>Tentativa de Homicídio</td><td>45 Meses</td><td>$20.000</td><td class="fianca-nao">NÃO</td><td>Civis ou Policiais.</td></tr>
+            <tr><td>Lesão Corporal</td><td>15 Meses</td><td>$5.000</td><td class="fianca-sim">SIM</td><td>Agressão física.</td></tr>
+            <tr><td>Sequestro / Cárcere</td><td>50 Meses</td><td>$15.000</td><td class="fianca-nao">NÃO</td><td>Restrição de liberdade.</td></tr>
+        </tbody>
+    </table>
+
+    <div class="category-header">2. Crimes Contra o Patrimônio</div>
+    <table>
+        <thead>
+            <tr><th>Crime</th><th>Pena</th><th>Multa</th><th>Fiança</th><th>Observação</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Roubo à Conveniência</td><td>20 Meses</td><td>$5.000</td><td class="fianca-sim">SIM</td><td>Assalto a lojas.</td></tr>
+            <tr><td>Roubo à Joalheria</td><td>50 Meses</td><td>$20.000</td><td class="fianca-nao">NÃO</td><td>Vangelico.</td></tr>
+            <tr><td>Roubo a Bancos</td><td>60 Meses</td><td>$25.000</td><td class="fianca-nao">NÃO</td><td>Fleeca/Paleto.</td></tr>
+            <tr><td>Roubo ao Banco Central</td><td>100 Meses</td><td>$50.000</td><td class="fianca-nao">NÃO</td><td>Segurança Máxima.</td></tr>
+            <tr><td>Furto de Veículo</td><td>15 Meses</td><td>$4.000</td><td class="fianca-sim">SIM</td><td>Lockpick/Ganzua.</td></tr>
+        </tbody>
+    </table>
+
+    <div class="category-header">3. Administração Pública</div>
+    <table>
+        <thead>
+            <tr><th>Crime</th><th>Pena</th><th>Multa</th><th>Fiança</th><th>Observação</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Desacato</td><td>10 Meses</td><td>$5.000</td><td class="fianca-sim">SIM</td><td>Ofensas verbais.</td></tr>
+            <tr><td>Desobediência</td><td>15 Meses</td><td>$4.000</td><td class="fianca-sim">SIM</td><td>Ignorar ordens.</td></tr>
+            <tr><td>Fuga de Abordagem</td><td>30 Meses</td><td>$10.000</td><td class="fianca-nao">NÃO</td><td>Perseguição veicular.</td></tr>
+            <tr><td>Resistência</td><td>20 Meses</td><td>$6.000</td><td class="fianca-sim">SIM</td><td>Reagir à prisão.</td></tr>
+        </tbody>
+    </table>
+
+    <div class="category-header">4. Ilícitos (Drogas e Armas)</div>
+    <table>
+        <thead>
+            <tr><th>Crime</th><th>Pena</th><th>Multa</th><th>Fiança</th><th>Observação</th></tr>
+        </thead>
+        <tbody>
+            <tr class="highlight-row">
+                <td>Porte de Entorpecentes (Maconha)</td>
+                <td>Investigação</td>
+                <td>$5.000</td>
+                <td class="fianca-sim">SIM</td>
+                <td>Indivíduo com 3 baseados deve ser levado à Investigativa por suspeita de tráfico.</td>
+            </tr>
+            <tr><td>Tráfico de Drogas</td><td>20 Meses</td><td>$10.000</td><td class="fianca-nao">NÃO</td><td>A cada 50 unidades de substância.</td></tr>
+            <tr><td>Porte de Arma Leve</td><td>20 Meses</td><td>$8.000</td><td class="fianca-sim">SIM</td><td>Pistolas sem porte.</td></tr>
+            <tr><td>Porte de Arma Pesada</td><td>50 Meses</td><td>$20.000</td><td class="fianca-nao">NÃO</td><td>Fuzis / Armas Militares.</td></tr>
+            <tr><td>Posse de Itens Ilícitos</td><td>10 Meses</td><td>$3.000</td><td class="fianca-sim">SIM</td><td>Materiais de roubo.</td></tr>
+        </tbody>
+    </table>
+
+    <div class="category-header">5. Código de Trânsito</div>
+    <table>
+        <thead>
+            <tr><th>Infração</th><th>Pena</th><th>Multa</th><th>Apreensão</th><th>Observação</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Direção Perigosa</td><td>0 Meses</td><td>$5.000</td><td>SIM</td><td>Manobras arriscadas/Racha.</td></tr>
+            <tr><td>Embriaguez ao Volante</td><td>10 Meses</td><td>$6.000</td><td>SIM</td><td>Uso de substâncias.</td></tr>
+            <tr><td>Veículo Danificado</td><td>0 Meses</td><td>$2.000</td><td>SIM</td><td>Fumaça/Sem pneus.</td></tr>
+        </tbody>
+    </table>
+
+    <div class="footer-info">
+        <div class="card card-alert">
+            <h3>⚠️ Alerta Investigativo</h3>
+            <p>De acordo com a nova diretriz judicial, qualquer cidadão portando <strong>exatos ou mais de 3 baseados de maconha</strong> deve ser obrigatoriamente apresentado ao <strong>Departamento Investigativo</strong>. O oficial deve abrir um inquérito para apurar possível crime de tráfico antes da liberação ou condenação final.</p>
+        </div>
+        <div class="card">
+            <h3>📉 Atenuantes</h3>
+            <ul>
+                <li><strong>Réu Primário:</strong> -20% de pena e multa.</li>
+                <li><strong>Réu Confesso:</strong> -10% de pena total.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>📜 Direitos de Miranda</h3>
+            <p><i>"Você tem o direito de permanecer em silêncio. Tudo o que disser pode e será usado contra você. Você tem direito a um advogado."</i></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function searchTable() {
+        var input, filter, tables, tr, td, i, j, visible;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        tables = document.getElementsByTagName("table");
+
+        for (i = 0; i < tables.length; i++) {
+            tr = tables[i].getElementsByTagName("tr");
+            for (j = 1; j < tr.length; j++) {
+                visible = false;
+                tds = tr[j].getElementsByTagName("td");
+                for (var k = 0; k < tds.length; k++) {
+                    if (tds[k].innerText.toUpperCase().indexOf(filter) > -1) {
+                        visible = true;
+                        break;
+                    }
+                }
+                tr[j].style.display = visible ? "" : "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
