@@ -3,125 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Código Penal Completo - GTA RP</title>
+    <title>Código Penal - Unique Roleplay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #e74c3c;
-            --secondary: #2c3e50;
-            --bg: #121212;
-            --card-bg: #1e1e1e;
-            --text: #e0e0e0;
-            --accent: #f1c40f;
-            --success: #2ecc71;
-            --alert: #d35400;
+            --primary: #afff00; /* Verde Unique */
+            --bg: #0a0a0a;
+            --card-bg: #151518;
+            --border: #2a2a2e;
+            --text: #ffffff;
+            --text-dim: #94a3b8;
+            --danger: #ff4757;
+            --warning: #f1c40f;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
             padding: 20px;
-            line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-        }
+        .container { max-width: 1200px; margin: auto; }
 
         header {
             text-align: center;
-            padding: 20px;
-            background: var(--card-bg);
-            border-radius: 10px;
-            border-bottom: 4px solid var(--primary);
+            padding: 40px;
+            background: linear-gradient(180deg, rgba(175, 255, 0, 0.05) 0%, transparent 100%);
+            border-bottom: 2px solid var(--primary);
+            border-radius: 15px;
             margin-bottom: 30px;
         }
 
-        h1 { margin: 0; color: var(--primary); text-transform: uppercase; letter-spacing: 3px; }
-        p.subtitle { margin: 5px 0 0; opacity: 0.7; font-size: 0.9em; }
+        h1 { margin: 0; font-size: 2.8em; letter-spacing: 5px; color: var(--primary); text-transform: uppercase; }
+        .subtitle { font-family: 'Roboto Mono', monospace; font-size: 0.9em; color: var(--text-dim); opacity: 0.8; }
 
+        /* --- Busca Fixa --- */
         .search-container {
             position: sticky;
-            top: 10px;
-            z-index: 100;
-            margin-bottom: 25px;
+            top: 20px;
+            z-index: 1000;
+            margin-bottom: 30px;
         }
 
         .search-box {
             width: 100%;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 18px 25px;
+            background: var(--card-bg);
             border: 2px solid var(--primary);
-            background: var(--card-bg);
+            border-radius: 12px;
             color: white;
-            font-size: 18px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            font-size: 1.1em;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            outline: none;
+            transition: 0.3s;
         }
 
+        .search-box:focus { box-shadow: 0 0 20px rgba(175, 255, 0, 0.2); }
+
+        /* --- Tabelas e Categorias --- */
         .category-header {
-            background: linear-gradient(90deg, var(--primary), transparent);
-            padding: 10px 20px;
-            margin-top: 40px;
-            border-radius: 5px;
+            background: #1a1a1e;
+            color: var(--primary);
+            padding: 12px 20px;
+            border-radius: 8px 8px 0 0;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.3em;
             text-transform: uppercase;
+            border-left: 5px solid var(--primary);
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card-bg);
-            margin-top: 10px;
-            border-radius: 8px;
-            overflow: hidden;
+        .table-wrapper { 
+            overflow-x: auto; 
+            background: var(--card-bg); 
+            border-radius: 0 0 8px 8px;
+            border: 1px solid var(--border);
         }
 
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #333;
-        }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { background: #000; color: var(--text-dim); padding: 15px; font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px; }
+        td { padding: 15px; border-bottom: 1px solid var(--border); font-size: 1em; }
+        tr:hover { background: rgba(175, 255, 0, 0.02); }
 
-        th {
-            background-color: #111;
-            color: var(--accent);
-            font-size: 0.85em;
-            text-transform: uppercase;
-        }
+        /* --- Status --- */
+        .fianca-sim { color: var(--primary); font-weight: bold; }
+        .fianca-nao { color: var(--danger); font-weight: bold; }
+        .highlight-investigation { background: rgba(241, 196, 15, 0.05) !important; border-left: 4px solid var(--warning); }
 
-        tr:hover { background-color: #252525; }
-
-        .highlight-row {
-            background-color: rgba(241, 196, 15, 0.1) !important;
-            border-left: 4px solid var(--accent);
-        }
-
-        .fianca-sim { color: var(--success); font-weight: bold; }
-        .fianca-nao { color: var(--primary); font-weight: bold; }
-
-        .footer-info {
+        /* --- Footer Cards --- */
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 50px;
         }
 
-        .card {
+        .info-card {
             background: var(--card-bg);
-            padding: 20px;
-            border-radius: 10px;
-            border-top: 3px solid var(--accent);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
         }
 
-        .card-alert { border-top: 3px solid var(--alert); }
+        .info-card h3 { color: var(--primary); margin-top: 0; text-transform: uppercase; font-size: 1.2em; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .info-card ul { padding-left: 20px; color: var(--text-dim); }
+        .info-card li { margin-bottom: 10px; }
+        .miranda { font-style: italic; color: var(--primary); background: #000; padding: 15px; border-radius: 8px; border: 1px dashed var(--primary); }
 
-        .card h3 { color: var(--accent); margin-top: 0; }
-        .card-alert h3 { color: var(--alert); }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
+        footer { text-align: center; padding: 60px; opacity: 0.3; font-size: 0.8em; }
 
         @media (max-width: 768px) {
             th:nth-child(4), td:nth-child(4) { display: none; }
@@ -132,118 +127,126 @@
 
 <div class="container">
     <header>
-        <h1>CÓDIGO PENAL UNIFICADO</h1>
-        <p class="subtitle">Departamento de Justiça & Segurança Pública</p>
+        <h1>CÓDIGO PENAL UNIQUE</h1>
+        <div class="subtitle">DEPARTAMENTO DE JUSTIÇA // DIRETRIZES ATUALIZADAS 2024</div>
     </header>
-    
+
     <div class="search-container">
-        <input type="text" id="searchInput" class="search-box" placeholder="🔎 Pesquisar crime ou regra específica..." onkeyup="searchTable()">
+        <input type="text" id="searchInput" class="search-box" placeholder="🔎 Pesquisar por crime, pena ou palavra-chave..." onkeyup="searchTable()">
     </div>
 
-    <div class="category-header">1. Crimes Contra a Pessoa</div>
-    <table>
-        <thead>
-            <tr><th>Crime</th><th>Pena</th><th>Multa</th><th>Fiança</th><th>Observação</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Homicídio Doloso</td><td>80 Meses</td><td>$30.000</td><td class="fianca-nao">NÃO</td><td>Com intenção.</td></tr>
-            <tr><td>Homicídio Culposo</td><td>30 Meses</td><td>$15.000</td><td class="fianca-sim">SIM</td><td>Sem intenção.</td></tr>
-            <tr><td>Tentativa de Homicídio</td><td>45 Meses</td><td>$20.000</td><td class="fianca-nao">NÃO</td><td>Civis ou Policiais.</td></tr>
-            <tr><td>Lesão Corporal</td><td>15 Meses</td><td>$5.000</td><td class="fianca-sim">SIM</td><td>Agressão física.</td></tr>
-            <tr><td>Sequestro / Cárcere</td><td>50 Meses</td><td>$15.000</td><td class="fianca-nao">NÃO</td><td>Restrição de liberdade.</td></tr>
-        </tbody>
-    </table>
+    <div class="category-header"><i class="fas fa-user-shield"></i> Crimes Contra a Pessoa</div>
+    <div class="table-wrapper">
+        <table class="penalTable">
+            <thead>
+                <tr><th>Crime</th><th>Pena</th><th>Multa</th><th>Fiança</th><th>Obs.</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Homicídio Doloso (Policial)</td><td>100 meses</td><td>$50.000</td><td class="fianca-nao">NÃO</td><td>Agressão fatal a oficial.</td></tr>
+                <tr><td>Homicídio Doloso (Civil)</td><td>80 meses</td><td>$30.000</td><td class="fianca-nao">NÃO</td><td>Com intenção de matar.</td></tr>
+                <tr><td>Homicídio Culposo</td><td>30 meses</td><td>$15.000</td><td class="fianca-sim">SIM</td><td>Sem intenção.</td></tr>
+                <tr><td>Tentativa de Homicídio</td><td>45 meses</td><td>$20.000</td><td class="fianca-nao">NÃO</td><td>Qualquer cidadão.</td></tr>
+                <tr><td>Sequestro / Cárcere</td><td>50 meses</td><td>$15.000</td><td class="fianca-nao">NÃO</td><td>Privação de liberdade.</td></tr>
+                <tr><td>Lesão Corporal</td><td>15 meses</td><td>$5.000</td><td class="fianca-sim">SIM</td><td>Agressão física.</td></tr>
+                <tr><td>Omissão de Socorro</td><td>10 meses</td><td>$3.000</td><td class="fianca-sim">SIM</td><td>Ignorar ferido.</td></tr>
+            </tbody>
+        </table>
+    </div>
 
-    <div class="category-header">2. Crimes Contra o Patrimônio</div>
-    <table>
-        <thead>
-            <tr><th>Crime</th><th>Pena</th><th>Multa</th><th>Fiança</th><th>Observação</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Roubo à Conveniência</td><td>20 Meses</td><td>$5.000</td><td class="fianca-sim">SIM</td><td>Assalto a lojas.</td></tr>
-            <tr><td>Roubo à Joalheria</td><td>50 Meses</td><td>$20.000</td><td class="fianca-nao">NÃO</td><td>Vangelico.</td></tr>
-            <tr><td>Roubo a Bancos</td><td>60 Meses</td><td>$25.000</td><td class="fianca-nao">NÃO</td><td>Fleeca/Paleto.</td></tr>
-            <tr><td>Roubo ao Banco Central</td><td>100 Meses</td><td>$50.000</td><td class="fianca-nao">NÃO</td><td>Segurança Máxima.</td></tr>
-            <tr><td>Furto de Veículo</td><td>15 Meses</td><td>$4.000</td><td class="fianca-sim">SIM</td><td>Lockpick/Ganzua.</td></tr>
-        </tbody>
-    </table>
+    <div class="category-header"><i class="fas fa-vault"></i> Crimes Contra o Patrimônio</div>
+    <div class="table-wrapper">
+        <table class="penalTable">
+            <thead>
+                <tr><th>Crime</th><th>Pena</th><th>Multa</th><th>Fiança</th><th>Obs.</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Roubo ao Banco Central</td><td>120 meses</td><td>$80.000</td><td class="fianca-nao">NÃO</td><td>Segurança Máxima.</td></tr>
+                <tr><td>Roubo a Bancos (Fleeca)</td><td>60 meses</td><td>$25.000</td><td class="fianca-nao">NÃO</td><td>Agências menores.</td></tr>
+                <tr><td>Roubo à Joalheria</td><td>50 meses</td><td>$20.000</td><td class="fianca-nao">NÃO</td><td>Vangelico.</td></tr>
+                <tr><td>Roubo a Caixa Eletrônico</td><td>25 meses</td><td>$10.000</td><td class="fianca-sim">SIM</td><td>Uso de maçarico.</td></tr>
+                <tr><td>Roubo à Conveniência</td><td>20 meses</td><td>$5.000</td><td class="fianca-sim">SIM</td><td>Lojas de bairro.</td></tr>
+                <tr><td>Furto de Veículo</td><td>15 meses</td><td>$4.000</td><td class="fianca-sim">SIM</td><td>Uso de Lockpick.</td></tr>
+            </tbody>
+        </table>
+    </div>
 
-    <div class="category-header">3. Administração Pública</div>
-    <table>
-        <thead>
-            <tr><th>Crime</th><th>Pena</th><th>Multa</th><th>Fiança</th><th>Observação</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Desacato</td><td>10 Meses</td><td>$5.000</td><td class="fianca-sim">SIM</td><td>Ofensas verbais.</td></tr>
-            <tr><td>Desobediência</td><td>15 Meses</td><td>$4.000</td><td class="fianca-sim">SIM</td><td>Ignorar ordens.</td></tr>
-            <tr><td>Fuga de Abordagem</td><td>30 Meses</td><td>$10.000</td><td class="fianca-nao">NÃO</td><td>Perseguição veicular.</td></tr>
-            <tr><td>Resistência</td><td>20 Meses</td><td>$6.000</td><td class="fianca-sim">SIM</td><td>Reagir à prisão.</td></tr>
-        </tbody>
-    </table>
+    <div class="category-header"><i class="fas fa-pills"></i> Narcóticos e Armamentos</div>
+    <div class="table-wrapper">
+        <table class="penalTable">
+            <thead>
+                <tr><th>Crime</th><th>Pena</th><th>Multa</th><th>Fiança</th><th>Obs.</th></tr>
+            </thead>
+            <tbody>
+                <tr class="highlight-investigation">
+                    <td><b>Posse de Maconha (3+)</b></td>
+                    <td><b>Investigação</b></td>
+                    <td>$5.000</td>
+                    <td class="fianca-sim">SIM</td>
+                    <td>Encaminhar obrigatoriamente para a Investigativa.</td>
+                </tr>
+                <tr><td>Tráfico de Drogas</td><td>25 meses</td><td>$10.000</td><td class="fianca-nao">NÃO</td><td>Acima de 50 unidades.</td></tr>
+                <tr><td>Tráfico de Armas</td><td>60 meses</td><td>$40.000</td><td class="fianca-nao">NÃO</td><td>Venda/Distribuição.</td></tr>
+                <tr><td>Porte de Arma Pesada</td><td>50 meses</td><td>$20.000</td><td class="fianca-nao">NÃO</td><td>Fuzis/Submetralhadoras.</td></tr>
+                <tr><td>Porte de Arma Leve</td><td>20 meses</td><td>$8.000</td><td class="fianca-sim">SIM</td><td>Pistolas sem porte.</td></tr>
+                <tr><td>Posse de Itens Ilícitos</td><td>10 meses</td><td>$3.000</td><td class="fianca-sim">SIM</td><td>Ferramentas de roubo.</td></tr>
+            </tbody>
+        </table>
+    </div>
 
-    <div class="category-header">4. Ilícitos (Drogas e Armas)</div>
-    <table>
-        <thead>
-            <tr><th>Crime</th><th>Pena</th><th>Multa</th><th>Fiança</th><th>Observação</th></tr>
-        </thead>
-        <tbody>
-            <tr class="highlight-row">
-                <td>Porte de Entorpecentes (Maconha)</td>
-                <td>Investigação</td>
-                <td>$5.000</td>
-                <td class="fianca-sim">SIM</td>
-                <td>Indivíduo com 3 baseados deve ser levado à Investigativa por suspeita de tráfico.</td>
-            </tr>
-            <tr><td>Tráfico de Drogas</td><td>20 Meses</td><td>$10.000</td><td class="fianca-nao">NÃO</td><td>A cada 50 unidades de substância.</td></tr>
-            <tr><td>Porte de Arma Leve</td><td>20 Meses</td><td>$8.000</td><td class="fianca-sim">SIM</td><td>Pistolas sem porte.</td></tr>
-            <tr><td>Porte de Arma Pesada</td><td>50 Meses</td><td>$20.000</td><td class="fianca-nao">NÃO</td><td>Fuzis / Armas Militares.</td></tr>
-            <tr><td>Posse de Itens Ilícitos</td><td>10 Meses</td><td>$3.000</td><td class="fianca-sim">SIM</td><td>Materiais de roubo.</td></tr>
-        </tbody>
-    </table>
+    <div class="category-header"><i class="fas fa-building-columns"></i> Ordem Pública e Trânsito</div>
+    <div class="table-wrapper">
+        <table class="penalTable">
+            <thead>
+                <tr><th>Crime/Infração</th><th>Pena</th><th>Multa</th><th>Fiança</th><th>Obs.</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Desacato</td><td>10 meses</td><td>$5.000</td><td class="fianca-sim">SIM</td><td>Ofensas à autoridade.</td></tr>
+                <tr><td>Fuga de Abordagem</td><td>30 meses</td><td>$15.000</td><td class="fianca-nao">NÃO</td><td>Desobediência em VTR.</td></tr>
+                <tr><td>Obstrução de Justiça</td><td>20 meses</td><td>$10.000</td><td class="fianca-sim">SIM</td><td>Atrapalhar perícia/cena.</td></tr>
+                <tr><td>Falsidade Ideológica</td><td>15 meses</td><td>$5.000</td><td class="fianca-sim">SIM</td><td>Mentir nome/passaporte.</td></tr>
+                <tr><td>Direção Perigosa</td><td>0 meses</td><td>$5.000</td><td class="fianca-sim">SIM</td><td>Racha/Contramão.</td></tr>
+                <tr><td>Embriaguez ao Volante</td><td>10 meses</td><td>$6.000</td><td class="fianca-sim">SIM</td><td>Veículo apreendido.</td></tr>
+            </tbody>
+        </table>
+    </div>
 
-    <div class="category-header">5. Código de Trânsito</div>
-    <table>
-        <thead>
-            <tr><th>Infração</th><th>Pena</th><th>Multa</th><th>Apreensão</th><th>Observação</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Direção Perigosa</td><td>0 Meses</td><td>$5.000</td><td>SIM</td><td>Manobras arriscadas/Racha.</td></tr>
-            <tr><td>Embriaguez ao Volante</td><td>10 Meses</td><td>$6.000</td><td>SIM</td><td>Uso de substâncias.</td></tr>
-            <tr><td>Veículo Danificado</td><td>0 Meses</td><td>$2.000</td><td>SIM</td><td>Fumaça/Sem pneus.</td></tr>
-        </tbody>
-    </table>
-
-    <div class="footer-info">
-        <div class="card card-alert">
+    <div class="footer-grid">
+        <div class="info-card" style="border-top: 3px solid var(--warning);">
             <h3>⚠️ Alerta Investigativo</h3>
-            <p>De acordo com a nova diretriz judicial, qualquer cidadão portando <strong>exatos ou mais de 3 baseados de maconha</strong> deve ser obrigatoriamente apresentado ao <strong>Departamento Investigativo</strong>. O oficial deve abrir um inquérito para apurar possível crime de tráfico antes da liberação ou condenação final.</p>
+            <p>De acordo com a nova diretriz, cidadãos portando <b>3 ou mais unidades de maconha</b> devem ser levados ao Departamento de Investigação. Não condene antes da apuração do detetive.</p>
         </div>
-        <div class="card">
-            <h3>📉 Atenuantes</h3>
+        <div class="info-card" style="border-top: 3px solid var(--primary);">
+            <h3>📉 Cálculo de Pena</h3>
             <ul>
-                <li><strong>Réu Primário:</strong> -20% de pena e multa.</li>
-                <li><strong>Réu Confesso:</strong> -10% de pena total.</li>
+                <li><b>Réu Primário:</b> Redução de 20% na pena/multa.</li>
+                <li><b>Confissão:</b> Redução de 10% na pena total.</li>
+                <li><b>Advogado Presente:</b> Garante o cumprimento exato da lei.</li>
             </ul>
         </div>
-        <div class="card">
+        <div class="info-card" style="border-top: 3px solid var(--primary);">
             <h3>📜 Direitos de Miranda</h3>
-            <p><i>"Você tem o direito de permanecer em silêncio. Tudo o que disser pode e será usado contra você. Você tem direito a um advogado."</i></p>
+            <div class="miranda">
+                "Você tem o direito de permanecer em silêncio. Tudo o que disser pode e será usado contra você em um tribunal. Você tem direito a um advogado."
+            </div>
         </div>
     </div>
+
+    <footer>
+        &copy; 2024 UNIQUE ROLEPLAY - SISTEMA DE JUSTIÇA UNIFICADO
+    </footer>
 </div>
 
 <script>
     function searchTable() {
-        var input, filter, tables, tr, td, i, j, visible;
-        input = document.getElementById("searchInput");
-        filter = input.value.toUpperCase();
-        tables = document.getElementsByTagName("table");
+        var input = document.getElementById("searchInput");
+        var filter = input.value.toUpperCase();
+        var tables = document.getElementsByClassName("penalTable");
 
-        for (i = 0; i < tables.length; i++) {
-            tr = tables[i].getElementsByTagName("tr");
-            for (j = 1; j < tr.length; j++) {
-                visible = false;
-                tds = tr[j].getElementsByTagName("td");
+        for (var i = 0; i < tables.length; i++) {
+            var tr = tables[i].getElementsByTagName("tr");
+            for (var j = 1; j < tr.length; j++) {
+                var visible = false;
+                var tds = tr[j].getElementsByTagName("td");
                 for (var k = 0; k < tds.length; k++) {
                     if (tds[k].innerText.toUpperCase().indexOf(filter) > -1) {
                         visible = true;

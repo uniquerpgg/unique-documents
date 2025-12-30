@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique RP - Central de Comando</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #afff00; /* Verde Unique */
+            --bg: #050505;
+            --card-bg: #111111;
+            --border: #222222;
+            --text: #ffffff;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- Background Animado --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(175, 255, 0, 0.03) 0%, transparent 50%),
+                linear-gradient(rgba(175, 255, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(175, 255, 0, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header { margin-bottom: 50px; }
+
+        .logo-main {
+            max-width: 350px;
+            filter: drop-shadow(0 0 30px rgba(175, 255, 0, 0.3));
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+
+        h1 {
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            font-size: 1.2em;
+            color: var(--primary);
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+
+        /* --- Grid de Acesso --- */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .hub-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hub-card i {
+            font-size: 3.5em;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: 0.4s;
+        }
+
+        .hub-card h2 {
+            margin: 0;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hub-card p {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        /* --- Efeitos de Hover --- */
+        .hub-card:hover {
+            border-color: var(--primary);
+            background: rgba(175, 255, 0, 0.05);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px rgba(175, 255, 0, 0.1);
+        }
+
+        .hub-card:hover i {
+            transform: scale(1.2);
+            text-shadow: 0 0 20px var(--primary);
+        }
+
+        .hub-card::after {
+            content: "ACESSAR SISTEMA";
+            position: absolute;
+            bottom: -30px;
+            font-size: 0.7em;
+            font-weight: bold;
+            color: var(--primary);
+            transition: 0.3s;
+            letter-spacing: 2px;
+        }
+
+        .hub-card:hover::after {
+            bottom: 15px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: auto;
+            padding: 40px;
+            opacity: 0.4;
+            font-size: 0.8em;
+            letter-spacing: 2px;
+        }
+
+        .status-bar {
+            position: fixed;
+            bottom: 0; width: 100%;
+            background: var(--primary);
+            color: black;
+            font-size: 0.7em;
+            font-weight: bold;
+            padding: 5px 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="logo.png" alt="Unique Roleplay" class="logo-main">
+        <h1>Central de Dados Governamentais</h1>
+    </header>
+
+    <div class="hub-grid">
+        <a href="rules.html" class="hub-card">
+            <i class="fas fa-gavel"></i>
+            <h2>Diretrizes</h2>
+            <p>Os 10 mandamentos e regras de convivência da cidade.</p>
+        </a>
+
+        <a href="codigo-penal.html" class="hub-card">
+            <i class="fas fa-balance-scale"></i>
+            <h2>Código Penal</h2>
+            <p>Consulta de penas, multas e protocolos de investigação.</p>
+        </a>
+
+        <a href="manual-de-conduta.html" class="hub-card">
+            <i class="fas fa-shield-halved"></i>
+            <h2>Manual SOP</h2>
+            <p>Protocolos de conduta, patrulhamento e uso da força.</p>
+        </a>
+    </div>
+
+    <footer>
+        SISTEMA DE GESTÃO UNIQUE RP &copy; 2025 - TODOS OS DIREITOS RESERVADOS
+    </footer>
+</div>
+
+<div class="status-bar">
+    <span>ESTADO DO SERVIDOR: <b id="status">OPERACIONAL</b></span>
+    <span>SISTEMA DE DADOS V4.0.2</span>
+    <span id="clock"></span>
+</div>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('clock').innerText = now.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
+
+</body>
+</html>

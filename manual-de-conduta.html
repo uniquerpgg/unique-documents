@@ -3,177 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual de Conduta Policial - LSPD Style</title>
+    <title>Manual de Operações - Unique Roleplay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
-            --police-blue: #002d5b;
-            --police-dark: #001a33;
-            --accent: #f1c40f;
-            --danger: #e74c3c;
-            --bg: #121212;
-            --card: #1e1e1e;
-            --text: #e0e0e0;
+            --primary: #afff00; /* Verde Unique */
+            --police-blue: #1a73e8;
+            --danger: #ff4c4c;
+            --bg: #0a0a0a;
+            --card-bg: #151518;
+            --border: #2a2a2e;
+            --text: #ffffff;
+            --text-dim: #94a3b8;
         }
 
         body {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            line-height: 1.5;
         }
 
-        .container { max-width: 1100px; margin: auto; }
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
 
+        /* --- Header Estilizado --- */
         header {
             text-align: center;
-            padding: 30px;
-            background: var(--police-blue);
-            border-radius: 10px;
-            border-bottom: 5px solid var(--accent);
-            margin-bottom: 30px;
+            padding: 50px 20px;
+            background: linear-gradient(180deg, rgba(175, 255, 0, 0.1) 0%, transparent 100%);
+            border-bottom: 2px solid var(--primary);
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
         }
 
-        h1 { margin: 0; color: white; letter-spacing: 2px; text-transform: uppercase; }
-        .badge { font-size: 0.8em; color: var(--accent); font-weight: bold; }
+        .header-logo { max-width: 250px; margin-bottom: 15px; }
+        h1 { margin: 0; font-size: 2.5em; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); }
+        .sub-badge { font-family: 'Roboto Mono', monospace; font-size: 0.9em; color: var(--text-dim); }
 
-        .nav-grid {
+        /* --- Grid de Conteúdo --- */
+        .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
             margin-bottom: 30px;
         }
 
-        .section-card {
-            background: var(--card);
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid var(--police-blue);
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
         }
 
-        h2 { color: var(--accent); border-bottom: 1px solid #444; padding-bottom: 10px; text-transform: uppercase; font-size: 1.1em; }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .card::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--primary);
+        }
 
+        h2 { color: var(--primary); font-size: 1.4em; text-transform: uppercase; margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        h2 i { font-size: 0.9em; opacity: 0.8; }
+
+        /* --- Códigos 10 --- */
         .code-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            font-family: monospace;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            font-family: 'Roboto Mono', monospace;
         }
 
-        .code-item { background: #111; padding: 5px 10px; border-radius: 4px; border: 1px solid #333; }
-        .code-item b { color: var(--accent); }
+        .code-item { background: #000; padding: 8px; border-radius: 6px; border: 1px solid #222; font-size: 0.85em; }
+        .code-item b { color: var(--primary); }
 
-        .status-box {
-            background: #252525;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 15px;
+        /* --- Uso da Força (Escala) --- */
+        .force-scale { margin-top: 15px; }
+        .scale-step {
+            padding: 10px; margin-bottom: 5px; border-radius: 5px; font-weight: bold; font-size: 0.9em;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .step-1 { background: #1a1a1a; border-left: 10px solid #555; }
+        .step-2 { background: #1a331a; border-left: 10px solid #2ecc71; }
+        .step-3 { background: #33331a; border-left: 10px solid #f1c40f; }
+        .step-4 { background: #331a1a; border-left: 10px solid #e67e22; }
+        .step-5 { background: #4d0000; border-left: 10px solid #e74c3c; }
+
+        /* --- Listas e Texto --- */
+        ul, ol { padding-left: 20px; color: var(--text-dim); }
+        li { margin-bottom: 8px; }
+        b { color: var(--text); }
+
+        .miranda-box {
+            background: #000; border: 1px dashed var(--primary); padding: 15px;
+            border-radius: 8px; font-style: italic; margin-top: 15px; color: var(--primary);
         }
 
-        .rank-box {
-            border: 1px solid var(--police-blue);
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
+        .investigative-card { border-left-color: #f1c40f !important; }
+        .investigative-card h2 { color: #f1c40f; }
 
-        .rank-title { font-weight: bold; color: var(--accent); text-transform: uppercase; }
+        footer { text-align: center; padding: 40px; opacity: 0.4; font-size: 0.8em; border-top: 1px solid var(--border); }
 
-        .highlight { color: var(--danger); font-weight: bold; }
-
-        footer { text-align: center; margin-top: 50px; opacity: 0.5; font-size: 0.8em; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <div class="badge">POLICE DEPARTMENT</div>
-        <h1>Manual de Conduta e Patrulhamento</h1>
-        <p>Proteger e Servir - Unidade de Elite</p>
+        <img src="logo.png" alt="Unique Roleplay" class="header-logo">
+        <h1>SOP & PROTOCOLOS</h1>
+        <div class="sub-badge">STANDARD OPERATING PROCEDURE // LSPD DIVISON</div>
     </header>
 
-    <div class="nav-grid">
-        <div class="section-card">
-            <h2>🎙️ Códigos 10 (Comunicação)</h2>
+    <div class="content-grid">
+        <div class="card">
+            <h2><i class="fas fa-satellite-dish"></i> Códigos de Rádio</h2>
             <div class="code-grid">
-                <div class="code-item"><b>10-04:</b> Ciente / Copiado</div>
-                <div class="code-item"><b>10-06:</b> Ocupado</div>
-                <div class="code-item"><b>10-07:</b> Fora de serviço</div>
-                <div class="code-item"><b>10-08:</b> Em patrulha</div>
-                <div class="code-item"><b>10-10:</b> Ocorrência em andamento</div>
-                <div class="code-item"><b>10-14:</b> Cidadão suspeito</div>
-                <div class="code-item"><b>10-20:</b> Localização atual</div>
-                <div class="code-item"><b>10-31:</b> Crime em curso</div>
-                <div class="code-item"><b>10-33:</b> Apoio Urgente (QRR)</div>
-                <div class="code-item"><b>10-99:</b> Oficial baleado</div>
+                <div class="code-item"><b>10-04</b> Copiado</div>
+                <div class="code-item"><b>10-08</b> Em Patrulha</div>
+                <div class="code-item"><b>10-07</b> Fora de Serviço</div>
+                <div class="code-item"><b>10-20</b> Localização</div>
+                <div class="code-item"><b>10-33</b> Apoio Urgente</div>
+                <div class="code-item"><b>10-99</b> Oficial Baleado</div>
+                <div class="code-item"><b>QAP</b> Na escuta</div>
+                <div class="code-item"><b>QRR</b> Apoio Terrestre</div>
+                <div class="code-item"><b>QTH</b> Localização</div>
+                <div class="code-item"><b>QRV</b> À disposição</div>
             </div>
         </div>
 
-        <div class="section-card">
-            <h2>🚨 Códigos de Resposta</h2>
-            <div class="status-box">
-                <b>Código 1:</b> Patrulha padrão (Sem sirene/giroflex). Respeitar sinais.
-            </div>
-            <div class="status-box">
-                <b>Código 2:</b> Prioridade média (Giroflex ligado, sem sirene).
-            </div>
-            <div class="status-box">
-                <b>Código 3:</b> Emergência TOTAL (Giroflex e Sirene). Prioridade no trânsito.
-            </div>
-            <div class="status-box">
-                <b>Código 4:</b> Situação sob controle / Sem mais apoio necessário.
-            </div>
+        <div class="card">
+            <h2><i class="fas fa-siren-on"></i> Códigos de Deslocamento</h2>
+            <div class="scale-step step-1">COD 1 <span>Rotina (Sinais/Velocidade)</span></div>
+            <div class="scale-step step-3">COD 2 <span>Urgência (Giroflex Ligado)</span></div>
+            <div class="scale-step step-5">COD 3 <span>Emergência (Sirene/Giroflex)</span></div>
+            <p style="font-size: 0.85em; color: var(--text-dim); margin-top: 10px;">
+                <b>Código 4:</b> Situação sob controle. Unidades em deslocamento devem retornar ao patrulhamento.
+            </p>
         </div>
     </div>
 
-    <div class="nav-grid">
-        <div class="section-card">
-            <h2>🎖️ Hierarquia e Deveres</h2>
-            <div class="rank-box">
-                <span class="rank-title">Recruta (Cadete)</span>
-                <p>Estagiário em fase de teste. Não pode patrulhar sozinho. Deve observar, aprender e operar o rádio/MDT enquanto o superior dirige.</p>
-            </div>
-            <div class="rank-box">
-                <span class="rank-title">Oficial / Soldado</span>
-                <p>Espinha dorsal da polícia. Pode patrulhar sozinho (conforme regras da cidade), realizar abordagens e responder ocorrências 10-10.</p>
-            </div>
-        </div>
-
-        <div class="section-card">
-            <h2>🔫 Armamento Sugerido (RP)</h2>
+    <div class="content-grid">
+        <div class="card">
+            <h2><i class="fas fa-users-viewfinder"></i> Hierarquia de Campo</h2>
             <ul>
-                <li><b>Less-Lethal (Taser):</b> Uso primário em resistência física ou fuga a pé sem arma de fogo.</li>
-                <li><b>Combat Pistol:</b> Arma de porte obrigatório. Uso em legítima defesa.</li>
-                <li><b>Shotgun/Rifle:</b> Armas de grosso calibre. Só devem ser retiradas do rack da viatura em situações de 10-31 (assaltos) ou quando o suspeito portar arma pesada.</li>
+                <li><b>Cadete/Recruta:</b> Sombra operacional. Proibido pilotar em perseguições. Foco em preenchimento de multas e rádio.</li>
+                <li><b>Oficial/Soldado:</b> Unidade de resposta. Autorizado a patrulha solo. Responsável pelo zelo do material de campo.</li>
+                <li><b>Sargento+:</b> Comando de cena. Responsável por autorizar o uso de força letal (Código 5) e negociar em sequestros.</li>
             </ul>
         </div>
+
+        <div class="card">
+            <h2><i class="fas fa-hand-fist"></i> Uso Progressivo da Força</h2>
+            <div class="force-scale">
+                <div class="scale-step step-1">NÍVEL 1: Presença Policial</div>
+                <div class="scale-step step-2">NÍVEL 2: Verbalização</div>
+                <div class="scale-step step-3">NÍVEL 3: Controle Físico</div>
+                <div class="scale-step step-4">NÍVEL 4: Armas Não-Letais (Taser)</div>
+                <div class="scale-step step-5">NÍVEL 5: Força Letal</div>
+            </div>
+            <p style="font-size: 0.8em; color: var(--danger); margin-top: 10px;">
+                *O disparo é autorizado apenas em legítima defesa ou risco iminente a terceiros.
+            </p>
+        </div>
     </div>
 
-    <div class="section-card">
-        <h2>📑 Protocolo de Patrulha (SOP)</h2>
-        <ol>
-            <li><b>Início de Turno (QAP):</b> Bater o ponto, equipar-se no arsenal, pegar a viatura, realizar o check-list (combustível/mecânica) e informar no rádio: <i>"Oficial [Nome], 10-08 em patrulha [Zona/Setor]"</i>.</li>
-            <li><b>Abordagem Veicular (Traffic Stop):</b>
-                <ul>
-                    <li>Posicionar a viatura levemente para a esquerda atrás do suspeito (Ângulo de segurança).</li>
-                    <li>Informar 10-20, placa e modelo do veículo no rádio.</li>
-                    <li>Tocar a sirene brevemente para o suspeito encostar.</li>
-                </ul>
-            </li>
-            <li><b>Uso da Força:</b> O uso da força deve ser progressivo (Presença -> Verbalização -> Taser -> Arma de Fogo). <span class="highlight">O disparo de arma de fogo é o último recurso.</span></li>
-            <li><b>Direitos de Miranda:</b> Devem ser lidos no momento em que o indivíduo é algemado e a situação está segura.</li>
-        </ol>
+    <div class="content-grid">
+        <div class="card investigative-card">
+            <h2><i class="fas fa-magnifying-glass"></i> Protocolo Investigativo</h2>
+            <p>Conforme o Código Penal, indivíduos portando <b>3 baseados de maconha</b> devem seguir este fluxo:</p>
+            <ol>
+                <li>Realizar a contenção e algemamento.</li>
+                <li>Acionar um <b>Detetive</b> ou unidade da <b>Investigativa</b> via rádio.</li>
+                <li>Conduzir o suspeito para a sala de interrogatório, não diretamente para a cela.</li>
+                <li>Apreender o material como evidência para inquérito de tráfico.</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-list-check"></i> Abordagem de Rotina (10-14)</h2>
+            <ul>
+                <li><b>Verbalização:</b> "Mãos na cabeça e costas para a guarnição!"</li>
+                <li><b>Segurança:</b> Sempre um oficial realizando a revista enquanto o outro faz o "backup" (cobertura) com arma em punho.</li>
+                <li><b>Miranda:</b> Deve ser lida antes de qualquer interrogatório informal no caminho para a DP.</li>
+            </ul>
+            <div class="miranda-box">
+                "Você tem o direito de permanecer em silêncio. Tudo o que disser pode e será usado contra você..."
+            </div>
+        </div>
     </div>
 
-    <div class="section-card" style="margin-top: 20px; border-left-color: var(--danger);">
-        <h2>⚖️ Conduta Ética</h2>
-        <p>Um oficial americano preza pelo profissionalismo. O desacato por parte do civil deve ser respondido com a lei, não com agressividade verbal. <br>
-        <b>Lembre-se:</b> Você representa o Estado. Mantenha a postura, use o "Senhor/Senhora" e siga o Código Penal.</p>
+    <div class="card" style="border-left: 4px solid var(--danger);">
+        <h2><i class="fas fa-scale-balanced"></i> Ética e Conduta</h2>
+        <p>Na <b>Unique Roleplay</b>, o policial é a face da lei. Abuso de poder, "Powergaming" com a viatura ou desrespeito ao RP do civil resultará em punição administrativa grave. O uso de máscara por policiais é estritamente proibido, exceto em operações de unidades especiais (BOPE/SWAT).</p>
     </div>
 
     <footer>
-        &copy; 2024 Police Department - Documento Confidencial de Roleplay
+        &copy; 2024 UNIQUE ROLEPLAY // DEPARTAMENTO DE JUSTIÇA & SEGURANÇA PÚBLICA<br>
+        SISTEMA DE DIRETRIZES OPERACIONAIS - VERSÃO 2.1
     </footer>
 </div>
 
