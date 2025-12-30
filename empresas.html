@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Empresarial - Unique Roleplay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #afff00; /* Verde Unique */
+            --bg: #0a0a0b;
+            --card-bg: #151518;
+            --border: #2a2a2e;
+            --text: #ffffff;
+            --text-dim: #94a3b8;
+            --active: #2ecc71;
+            --pending: #f1c40f;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container { max-width: 1200px; margin: auto; }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(180deg, rgba(175, 255, 0, 0.05) 0%, transparent 100%);
+            border-bottom: 2px solid var(--primary);
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        h1 { margin: 0; font-size: 2.5em; letter-spacing: 5px; color: var(--primary); text-transform: uppercase; }
+        .subtitle { font-family: 'Roboto Mono', monospace; opacity: 0.7; font-size: 0.9em; }
+
+        /* --- Grid de Empresas --- */
+        .empresa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .empresa-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .empresa-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .faixada-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .empresa-body { padding: 20px; }
+
+        .nome-fantasia {
+            font-size: 1.6em;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .cnpj-tag {
+            font-family: 'Roboto Mono', monospace;
+            background: #000;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            color: var(--text-dim);
+        }
+
+        .info-row {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95em;
+        }
+
+        .info-row i { color: var(--primary); width: 20px; }
+
+        .status-alvara {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9em;
+        }
+
+        .status-ativo { background: rgba(46, 204, 113, 0.1); color: var(--active); border: 1px solid var(--active); }
+        .status-pendente { background: rgba(241, 196, 15, 0.1); color: var(--pending); border: 1px solid var(--pending); }
+
+        footer { text-align: center; padding: 60px; opacity: 0.3; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>JUNTA COMERCIAL UNIQUE</h1>
+        <div class="subtitle">REGISTRO NACIONAL DE PESSOAS JURÍDICAS (CNPJ)</div>
+    </header>
+
+    <div class="empresa-grid">
+
+        <div class="empresa-card">
+            <img src="https://i.imgur.com/uPjN0H4.jpeg" alt="Faixada" class="faixada-img">
+            <div class="empresa-body">
+                <div class="nome-fantasia">Bennys Original Motorworks</div>
+                <span class="cnpj-tag">CNPJ: 00.123.456/0001-01</span>
+
+                <div class="info-row">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Endereço: Strawberry Avenue, Los Santos</span>
+                </div>
+
+                <div class="info-row">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Proprietário: Benny</span>
+                </div>
+
+                <div class="status-alvara status-ativo">
+                    <i class="fas fa-check-circle"></i> Alvará Ativo
+                </div>
+            </div>
+        </div>
+        <div class="empresa-card">
+            <img src="https://i.imgur.com/8QGj3X9.jpeg" alt="Faixada" class="faixada-img">
+            <div class="empresa-body">
+                <div class="nome-fantasia">Vanilla Unicorn</div>
+                <span class="cnpj-tag">CNPJ: 00.999.888/0001-99</span>
+
+                <div class="info-row">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Endereço: Elgin Avenue, Strawberry</span>
+                </div>
+
+                <div class="info-row">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Proprietário: Registro Confidencial</span>
+                </div>
+
+                <div class="status-alvara status-pendente">
+                    <i class="fas fa-clock"></i> Alvará Pendente / Vencido
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <footer>
+        &copy; 2024 UNIQUE ROLEPLAY - SECRETARIA DA FAZENDA
+    </footer>
+</div>
+
+</body>
+</html>
